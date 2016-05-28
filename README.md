@@ -1,5 +1,5 @@
 # Advance #
-**Contributors:** Imon 
+**Contributors:** Imon Themes
 **Tags:** flexible-header, front-page-post-form, sticky-post, theme-options, threaded-comments,responsive-layout  
 **Donate link:** http://www.imonthemes.com/ 
 **Requires at least:** 4.4  
