@@ -83,20 +83,6 @@ Kirki::add_field( 'advance', array(
 
 
 
-Kirki::add_field( 'advance', array(
-    'type'        => 'switch',
-    'settings'    => 'advance_latstpst_checkbox',
-    'label'       => esc_attr__( 'Enable Latest Posts', 'advance' ),
-    'section'     => 'layout_front_page',
-    'default'     => '1',
-    'priority'    => 10,
-    'choices'     => array(
-        
-        'off' => esc_attr__( 'off', 'advance' ),
-		'on'  =>esc_attr__ ( 'on', 'advance' ),
-    ),
-) );
-
 /* Footer section */
 
 

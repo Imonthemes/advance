@@ -163,8 +163,11 @@ if ( ! class_exists( 'Kirki_l10n' ) ) {
 				'color'                 => esc_attr__( 'Color', 'advance' ),
 				'add-image'             => esc_attr__( 'Add Image', 'advance' ),
 				'change-image'          => esc_attr__( 'Change Image', 'advance' ),
-				'remove'                => esc_attr__( 'Remove', 'advance' ),
 				'no-image-selected'     => esc_attr__( 'No Image Selected', 'advance' ),
+				'add-file'              => esc_attr__( 'Add File', 'advance' ),
+				'change-file'           => esc_attr__( 'Change File', 'advance' ),
+				'no-file-selected'      => esc_attr__( 'No File Selected', 'advance' ),
+				'remove'                => esc_attr__( 'Remove', 'advance' ),
 				'select-font-family'    => esc_attr__( 'Select a font-family', 'advance' ),
 				'variant'               => esc_attr__( 'Variant', 'advance' ),
 				'subsets'               => esc_attr__( 'Subset', 'advance' ),
@@ -204,14 +207,22 @@ if ( ! class_exists( 'Kirki_l10n' ) ) {
 				'lowercase'             => esc_attr__( 'Lowercase', 'advance' ),
 				'initial'               => esc_attr__( 'Initial', 'advance' ),
 				'select-page'           => esc_attr__( 'Select a Page', 'advance' ),
+				'open-editor'           => esc_attr__( 'Open Editor', 'advance' ),
+				'close-editor'          => esc_attr__( 'Close Editor', 'advance' ),
+				'switch-editor'         => esc_attr__( 'Switch Editor', 'advance' ),
+				'hex-value'             => esc_attr__( 'Hex Value', 'advance' ),
 			);
 
+			// Apply global changes from the kirki/config filter.
+			// This is generally to be avoided.
+			// It is ONLY provided here for backwards-compatibility reasons.
+			// Please use the kirki/{$config_id}/l10n filter instead.
 			$config = apply_filters( 'kirki/config', array() );
-
 			if ( isset( $config['i18n'] ) ) {
 				$translation_strings = wp_parse_args( $config['i18n'], $translation_strings );
 			}
 
+			// Apply l10n changes using the kirki/{$config_id}/l10n filter.
 			return apply_filters( 'kirki/' . $config_id . '/l10n', $translation_strings );
 
 		}
