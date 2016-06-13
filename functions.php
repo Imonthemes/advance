@@ -344,13 +344,13 @@ add_action( 'widgets_init', 'advance_widgets_init' );
 
 
 //load widgets ,kirki ,customizer
-require(get_template_directory() . '/inc/kirki/kirki.php');
-require(get_template_directory() . '/inc/customizer.php');
-require(get_template_directory() . '/inc/widgets.php');
+require_once(get_template_directory() . '/inc/kirki/kirki.php');
+require_once(get_template_directory() . '/inc/customizer.php');
+require_once(get_template_directory() . '/inc/widgets.php');
 require(get_template_directory() . '/inc/upsell.php');
-require(get_template_directory() . '/inc/extra.php');
-require(get_template_directory() . '/inc/about-theme.php');
-require(get_template_directory() . '/inc/widgets/advance_serviceblock.php');
+require_once(get_template_directory() . '/inc/extra.php');
+require_once(get_template_directory() . '/inc/about-theme.php');
+require_once(get_template_directory() . '/inc/widgets/advance_serviceblock.php');
 if ( is_admin() ) {
-require(get_template_directory() . '/inc/admin/welcome-screen/welcome-screen.php');
+require_once(get_template_directory() . '/inc/admin/welcome-screen/welcome-screen.php');
 }

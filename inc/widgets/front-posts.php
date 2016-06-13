@@ -57,7 +57,7 @@ class advance_front_Posts extends WP_Widget {
 		/* Before widget (defined by themes). */
 		echo $before_widget;?>
 		
-	<div class="latest-post-advance" style="<?php if (!empty($instance['content_bg'])): ?> background-color:<?php echo esc_attr($instance['content_bg']); ?> ;<?php endif; ?>  <?php if (!empty($padtopbottom)): ?>padding-top:<?php echo $padtopbottom ;?>%; padding-bottom:<?php echo $padtopbottom ;?>%;  <?php endif; ?>">	
+	<div class="widgets-post-advance" style="<?php if (!empty($instance['content_bg'])): ?> background-color:<?php echo esc_attr($instance['content_bg']); ?> ;<?php endif; ?>  <?php if (!empty($padtopbottom)): ?>padding-top:<?php echo $padtopbottom ;?>%; padding-bottom:<?php echo $padtopbottom ;?>%;  <?php endif; ?>">	
  <div class=" row">
 <?php if (!empty($instance['title']) || !empty($instance['subtitle'])): ?>
  <div class="section-header wow fadeIn animated animated">
@@ -72,7 +72,7 @@ class advance_front_Posts extends WP_Widget {
                             <div class="colored-line" style="background:<?php echo $subtitle_textcolor ;?>;"></div>
 		
 						<div class="section-description"><h4><?php echo  htmlspecialchars_decode(apply_filters('widget_title', $instance['subtitle'])); ?></h4></div>
-                        <div class="colored-line" style="style="background:<?php echo $subtitle_textcolor ;?>;"></div>
+                        <div class="colored-line" style="background:<?php echo $subtitle_textcolor ;?>;"></div>
                              <?php endif;?>
        				 </div><!--section head end-->
                        
@@ -99,39 +99,40 @@ class advance_front_Posts extends WP_Widget {
 									$wp_query->the_post();?>
    
      
-                    <div class="matchhe post_warp large-3 medium-6 columns  ">
+              <div class="matchhe post_warp large-4 medium-6 columns  ">
+                   <div class="single_latest_news">
               
-                  <div class="post_image">
+                  <div class="latest_news_image">
                           <!--CALL TO POST IMAGE-->
                              
                        <?php  if ( get_the_post_thumbnail() != '' ) {
-						        
-								 echo '<div class=" imgwrap">';
-    
-                                 echo '<a href="';esc_url( the_permalink()); echo '" >';
-                                 the_post_thumbnail();
-                                 echo '</a>';
-                                 echo '</div>';
+						        echo '<a href="';esc_url( the_permalink()); echo '" >';
+							         the_post_thumbnail();
+									  echo '</a>';
+                                
+                                
                                  } else {
-    
-                                echo '<div class=" imgwrap">';
-                                echo '<a href="'; esc_url( the_permalink()); echo '">';
-     							echo '<img src="';
+    							 echo '<a href="';esc_url( the_permalink()); echo '" >';
+                         		echo '<img src="';
      							echo  esc_url (advance_catch_that_image());
      							echo '" alt="" />';
-     							echo '</a>';
-    							echo '</div>';
+								 echo '</a>';
+     							
+    							
     					};?>
                      </div><!--end POST IMAGE-->
                   
                   
-                  <div class=" post_content2">
-                 <div class=" post_content3">
+                  <div class=" latest_news_desc">
+               
                       
-                      <?php the_title( sprintf( '<h2 class="postitle_lay"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-             </div> 
-                   </div><!-- POST content-->
-                     </div>
+                      <?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+                      <h4><?php the_author(); ?> | <?php the_time( get_option('date_format') ); ?></h4>
+             <p><?php echo excerpt(30); ?></p> 
+             <a class="read_more" href="<?php echo esc_url(get_permalink());?>"><?php echo esc_attr__('Read more','advance');?></a>
+                   </div><!-- latest_news_desc-->
+                 </div>
+               </div>
             <?php } ?>
              <?php } ?>
           <!-- pagination -->
